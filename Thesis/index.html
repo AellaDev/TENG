@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TENG Energy Harvesting Dashboard</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>
+                <span class="status-indicator status-active"></span>
+                TENG Energy Harvesting System
+            </h1>
+            <p>Last Updated: <span id="lastUpdate">-</span></p>
+        </div>
+
+        <!-- Real-Time Energy Metrics -->
+        <h2>Real-Time Energy Metrics</h2>
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-label">Voltage</div>
+                <div class="metric-value" id="voltage">0 V</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Current</div>
+                <div class="metric-value" id="current">0 μA</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Power</div>
+                <div class="metric-value" id="power">0 μW</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Total Energy Harvested</div>
+                <div class="metric-value" id="totalEnergy">0 mWh</div>
+            </div>
+        </div>
+
+        <!-- Footfall Activity -->
+        <h2>Footfall Activity</h2>
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-label">Total Footfall Count</div>
+                <div class="metric-value" id="footfallCount">0</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Energy Per Step</div>
+                <div class="metric-value" id="energyPerStep">0 μWh</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Live Footfall Rate</div>
+                <div class="metric-value" id="footfallRate">0 /min</div>
+            </div>
+        </div>
+
+        <!-- Energy Storage Status -->
+        <h2>Energy Storage Status</h2>
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-label">Battery Voltage</div>
+                <div class="metric-value" id="batteryVoltage">0 V</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Storage Efficiency</div>
+                <div class="metric-value" id="storageEfficiency">0%</div>
+            </div>
+        </div>
+
+        <!-- Visualization Section -->
+        <h2>Real-Time Visualization</h2>
+        <div class="chart-container">
+            <canvas id="voltageChart"></canvas>
+        </div>
+        <div class="chart-container">
+            <canvas id="footfallChart"></canvas>
+        </div>
+
+        <!-- Performance Summary -->
+        <h2>System Performance Summary</h2>
+        <div class="performance-grid">
+            <div class="metric-card">
+                <div class="metric-label">Daily Energy Harvest</div>
+                <div class="metric-value" id="dailyEnergy">0 mWh</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Peak Output Today</div>
+                <div class="metric-value" id="peakOutput">0 mW</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Average Power Output</div>
+                <div class="metric-value" id="avgPower">0 mW</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load Config and Scripts -->
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
